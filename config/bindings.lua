@@ -8,6 +8,7 @@ local mod = {}
 if platform.is_mac then
    mod.SUPER = 'SUPER'
    mod.SUPER_REV = 'SUPER|CTRL'
+   mod.CTRL = 'CTRL'
 elseif platform.is_win or platform.is_linux then
    mod.SUPER = 'ALT' -- to not conflict with Windows key shortcuts
    mod.SUPER_REV = 'ALT|CTRL'
@@ -180,15 +181,15 @@ local keys = {
    { key = 'w',     mods = mod.SUPER,     action = act.CloseCurrentPane({ confirm = false }) },
 
    -- panes: navigation
-   { key = 'k',     mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Up') },
-   { key = 'j',     mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Down') },
-   { key = 'h',     mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Left') },
-   { key = 'l',     mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Right') },
-   {
-      key = 'p',
-      mods = mod.SUPER_REV,
-      action = act.PaneSelect({ alphabet = '1234567890', mode = 'SwapWithActiveKeepFocus' }),
-   },
+   -- { key = 'k',     mods = mod.SUPER, action = act.ActivatePaneDirection('Up') },
+   -- { key = 'j',     mods = mod.SUPER, action = act.ActivatePaneDirection('Down') },
+   -- { key = 'h',     mods = mod.SUPER, action = act.ActivatePaneDirection('Left') },
+   -- { key = 'l',     mods = mod.SUPER, action = act.ActivatePaneDirection('Right') },
+   -- {
+   --    key = 'p',
+   --    mods = mod.SUPER,
+   --    action = act.PaneSelect({ alphabet = '1234567890', mode = 'SwapWithActiveKeepFocus' }),
+   -- },
 
    -- panes: scroll pane
    { key = 'u',        mods = mod.SUPER, action = act.ScrollByLine(-5) },
@@ -208,15 +209,15 @@ local keys = {
       }),
    },
    -- resize panes
-   {
-      key = 'p',
-      mods = 'LEADER',
-      action = act.ActivateKeyTable({
-         name = 'resize_pane',
-         one_shot = false,
-         timemout_milliseconds = 1000,
-      }),
-   },
+   -- {
+   --    key = 'p',
+   --    mods = 'LEADER',
+   --    action = act.ActivateKeyTable({
+   --       name = 'resize_pane',
+   --       one_shot = false,
+   --       timemout_milliseconds = 1000,
+   --    }),
+   -- },
 }
 
 -- stylua: ignore
